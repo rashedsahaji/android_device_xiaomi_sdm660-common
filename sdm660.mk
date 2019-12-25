@@ -118,6 +118,10 @@ PRODUCT_PACKAGES += \
     libsndmonitor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor
 
+# Board
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := sdm660
+
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
 

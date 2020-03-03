@@ -1188,6 +1188,9 @@
     <!-- Enable 802.11ac for Wifi hotspot (SAP) -->
     <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
+	<!-- Default state for LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">true</bool>
+
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:

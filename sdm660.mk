@@ -63,6 +63,9 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     tinymix.vendor
 
+# JamesDSP
+PRODUCT_PACKAGES += \
+    JamesDSPManager
 # Audio Configs
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -263,7 +266,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.qti.fm.sh \
-    init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
 

@@ -120,8 +120,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.eis.enable=1 \
     persist.vendor.camera.exif.make=Xiaomi \
-    vendor.camera.aux.packageblacklist=com.google.android.GoogleCamera,com.discord
-
+    vendor.camera.aux.packageblacklist=com.google.android.GoogleCamera,com.discord \
+    camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi \
+    persist.camera.isp.turbo=1 \
+    persist.camera.set.afd=4 \
+    persist.bokeh.switch.lux=290 \
+    persist.camera.auxswitch.threshold=330 \
+    persist.camera.mainswitch.threshold=419
+    
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.media.codec2=2

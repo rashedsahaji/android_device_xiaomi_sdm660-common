@@ -127,8 +127,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.set.afd=4 \
     persist.bokeh.switch.lux=290 \
     persist.camera.auxswitch.threshold=330 \
-    persist.camera.mainswitch.threshold=419
-    
+    persist.camera.mainswitch.threshold=419 \
+    persist.camera.expose.aux=1
+
+
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.media.codec2=2

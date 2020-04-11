@@ -270,6 +270,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.qti.fm.sh \
     init.target.rc \
+    init.performance.sdm660.rc \
     ueventd.qcom.rc
 
 # Ion

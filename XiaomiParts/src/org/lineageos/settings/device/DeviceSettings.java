@@ -32,6 +32,7 @@ import org.lineageos.settings.device.kcal.KCalSettingsActivity;
 import org.lineageos.settings.device.preferences.SecureSettingListPreference;
 import org.lineageos.settings.device.preferences.SecureSettingSwitchPreference;
 import org.lineageos.settings.device.preferences.VibrationSeekBarPreference;
+import org.lineageos.settings.device.preferences.NotificationLedSeekBarPreference;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -40,6 +41,9 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
 
     public static final String PREF_KEY_FPS_INFO = "fps_info";
+    public static final String CATEGORY_NOTIF = "notification_led";
+    public static final String PREF_NOTIF_LED = "notification_led_brightness";
+    public static final String NOTIF_LED_PATH = "/sys/class/leds/white/max_brightness";
 
     // value of vtg_min and vtg_max
     public static final int MIN_VIBRATION = 116;
@@ -69,6 +73,13 @@ public class DeviceSettings extends PreferenceFragment implements
 
         mContext = this.getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        if (FileUtils.fileWritable(NOTIF_LED_PATH)) {
+            NotificationLedSeekBarPreference notifLedBrightness =
+                    (NotificationLedSeekBarPreference) findPreference(PREF_NOTIF_LED);
+            notifLedBrightness.setOnPreferenceChangeListener(this);
+        } else { getPreferenceScreen().removePreference(findPreference(CATEGORY_NOTIF)); }
+
 
         VibrationSeekBarPreference vibrationStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_STRENGTH);
         vibrationStrength.setEnabled(FileUtils.fileWritable(VIBRATION_STRENGTH_PATH));
@@ -109,6 +120,10 @@ public class DeviceSettings extends PreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object value) {
         final String key = preference.getKey();
         switch (key) {
+            case PREF_NOTIF_LED:
+                FileUtils.setValue(NOTIF_LED_PATH, (int) value);
+                break;
+
             case PREF_VIBRATION_STRENGTH:
                 double vibrationValue = (int) value / 100.0 * (MAX_VIBRATION - MIN_VIBRATION) + MIN_VIBRATION;
                 FileUtils.setValue(VIBRATION_STRENGTH_PATH, vibrationValue);

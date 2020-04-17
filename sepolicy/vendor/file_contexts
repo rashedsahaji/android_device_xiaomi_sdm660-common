@@ -85,3 +85,6 @@
 # FPS Overlay
 /sys/class/graphics/fb0/measured_fps                         u:object_r:sysfs_fpsinfo:s0
 /sys/devices/virtual/graphics/fb0/measured_fps                         u:object_r:sysfs:s0
+
+# System Stats
+/sys/kernel/debug/system_stats                         u:object_r:debugfs:s0

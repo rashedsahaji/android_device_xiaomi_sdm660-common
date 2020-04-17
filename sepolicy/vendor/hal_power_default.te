@@ -28,3 +28,6 @@ allow hal_power_default cgroup:file read;
 allow hal_power_default sysfs:file { read open getattr };
 allow hal_power_default sysfs_wlan:dir search;
 allow hal_power_default sysfs_wlan:file { read open getattr };
+
+# System Stats
+allow hal_power_default debugfs:file { read open getattr };

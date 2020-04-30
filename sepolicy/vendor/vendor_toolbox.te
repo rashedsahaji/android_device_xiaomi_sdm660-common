@@ -8,6 +8,8 @@ allow vendor_toolbox self:capability sys_admin;
 # Additional
 allow vendor_toolbox self:capability { dac_override dac_read_search };
 allow vendor_toolbox regionalization_file:file getattr;
+allow vendor_toolbox persist_rfs_file:file { getattr read open};
+allow vendor_toolbox media_rw_data_file:file { getattr read open};
 
 # Allow vendor_toolbox to execute /vendor/bin/toybox_vendor
 allow vendor_toolbox vendor_toolbox_exec:file execute_no_trans;
